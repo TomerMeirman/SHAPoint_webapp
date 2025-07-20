@@ -254,6 +254,3 @@ This tool is intended for **educational and research purposes only**. For clinic
 For questions about the webapp interface, please open an issue in this repository.  
 For questions about the core SHAPoint methodology, please refer to the [main SHAPoint repository](https://github.com/TomerMeirman/SHAPoint).
 
----
-
-**Made with ❤️ for interpretable machine learning** 
