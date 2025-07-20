@@ -1,0 +1,135 @@
+# SHAPoint WebApp Configuration File
+# This configuration file controls the behavior of the SHAPoint web application.
+# Most settings will be automatically detected from your data, but you can override them here if needed.
+
+# Application Settings
+app:
+  title: "SHAPoint: Interpretable Risk Assessment"
+  description: "Interactive risk assessment using SHAP-based interpretable models"
+  page_icon: "📊"
+  layout: "wide"
+  
+# Model Configuration
+model:
+  # Core model parameters
+  k_variables: 5              # Number of top features to use
+  max_leaves: 3               # Maximum leaves in decision trees
+  task: "Classification"      # Classification, Regression, or Survival
+  score_scale: 10             # Maximum risk score scale
+  use_optuna: true            # Use Optuna for hyperparameter optimization
+  n_random_features: 3        # Number of random features for optimization
+  risk_bins: 8                # Number of bins for risk score calculation
+  
+  # Model file paths (leave empty to train from data)
+  model_path: "models/shapoint_cardiovascular_model.pkl"
+  params_path: "models/base_params"
+  
+# Data Configuration
+data:
+  # Dataset settings
+  default_dataset: "cardiovascular"    # Options: cardiovascular, breast_cancer, custom
+  data_path: "../SHAPoint/examples/data/cardio_train.csv"
+  data_separator: ";"
+  target_column: "cardio"
+  exclude_columns: ["id"]              # Columns to exclude from analysis
+  
+  # Feature type classification (auto-detected if not specified)
+  # The system will automatically detect categorical vs continuous features
+  # Only specify these if you need to override the automatic detection
+  feature_types:
+    # Uncomment and modify these if you need to override auto-detection:
+    # categorical: ["gender", "cholesterol", "gluc", "smoke", "alco", "active"]
+    # continuous: ["age", "height", "weight", "ap_hi", "ap_lo"]
+  
+  # Feature metadata overrides (optional)
+  # The system will automatically generate appropriate labels, ranges, and default values
+  # Only add entries here if you need to customize specific features
+  feature_metadata:
+    # Example: Customize a feature's display properties
+    # age:
+    #   label: "Patient Age (days)"
+    #   help: "Age of the patient in days since birth"
+    #   min_value: 10000
+    #   max_value: 25000
+    #   default_value: 15000
+    #
+    # Example: Customize categorical feature options
+    # gender:
+    #   label: "Biological Gender"
+    #   options:
+    #     1:
+    #       label: "Female"
+    #       range: ""
+    #     2:
+    #       label: "Male"
+    #       range: ""
+    #   default_value: 1
+    #   help: "Biological gender of the patient"
+
+# UI Configuration
+ui:
+  # Display settings
+  display:
+    decimal_places: 1           # Number of decimal places for numeric displays
+    enable_retraining: true     # Enable retraining interface in sidebar
+  
+  # Main panel components
+  main_panel:
+    show_risk_gauge: true
+    show_population_comparison: true
+    show_shap_plots: true
+  
+  # Sidebar settings
+  sidebar:
+    width: 400
+    show_feature_importance: true
+    show_model_info: true
+  
+  # Styling theme
+  theme:
+    primary_color: "#FF6B6B"
+    background_color: "#FAFAFA"
+    secondary_background_color: "#FFFFFF"
+    text_color: "#262730"
+  
+  # Real-time updates
+  auto_update:
+    enabled: true
+    debounce_ms: 500           # Wait time after input change before updating
+
+# Visualization Settings
+visualization:
+  # Risk gauge configuration
+  risk_gauge:
+    title: "Cardiovascular Disease Risk"
+    units: "%"
+    max_value: 100
+    
+  # Population comparison chart
+  population_chart:
+    title: "Risk Compared to Population"
+    chart_type: "histogram"
+    
+  # SHAP plots
+  shap_plots:
+    show_waterfall: true
+    show_force_plot: true
+    show_feature_importance: true
+
+# Population Statistics (auto-calculated if not provided)
+population_stats:
+  # Risk thresholds for interpretation
+  risk_thresholds:
+    low: 30                    # Below this score is low risk
+    high: 70                   # Above this score is high risk
+
+# Advanced Settings
+advanced:
+  # Performance settings
+  cache_model_predictions: true
+  max_cache_size: 1000
+  
+  # Debug settings
+  debug_mode: false
+  show_raw_scores: false
+  show_feature_values: false 

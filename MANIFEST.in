@@ -1,0 +1,32 @@
+# Include package metadata and documentation
+include README.md
+include LICENSE
+include NOTICE
+include pyproject.toml
+include MANIFEST.in
+
+# Include configuration files
+include xshaprisk_webapp/config.yaml
+include xshaprisk_webapp/*.yaml
+include xshaprisk_webapp/*.yml
+
+# Include any requirements files
+include requirements*.txt
+
+# Include model files and directories
+recursive-include xshaprisk_webapp/models *
+recursive-include tests *.py
+
+# Include example data if present
+recursive-include examples *
+recursive-include data *.csv *.json
+
+# Exclude development and cache files
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+global-exclude .git*
+global-exclude venv/
+global-exclude .venv/
+global-exclude *.egg-info/
+global-exclude .pytest_cache/ 

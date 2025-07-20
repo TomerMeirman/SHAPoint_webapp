@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shapoint-webapp"
+version = "0.1.0"
+description = "Streamlit web application for SHAPoint interpretable risk assessment"
+readme = "README.md"
+authors = [
+    { name = "Tomer D. Meirman", email = "meirmant@post.bgu.ac.il" }
+]
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.7"
+keywords = ["risk-assessment", "interpretable-ml", "shap", "streamlit", "webapp", "healthcare"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Framework :: Streamlit",
+    "Operating System :: OS Independent"
+]
+
+dependencies = [
+    "shapoint>=0.1.0",
+    "streamlit>=1.46.0",
+    "plotly>=6.0.0",
+    "PyYAML>=6.0",
+    "pandas>=2.0.0",
+    "numpy>=1.20.0",
+    "scikit-learn>=1.3.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0"
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/TomerMeirman/SHAPoint_webapp"
+Documentation = "https://github.com/TomerMeirman/SHAPoint_webapp"
+Repository = "https://github.com/TomerMeirman/SHAPoint_webapp"
+"Bug Tracker" = "https://github.com/TomerMeirman/SHAPoint_webapp/issues"
+"SHAPoint Core" = "https://github.com/TomerMeirman/SHAPoint"
+
+[project.scripts]
+shapoint-webapp = "shapoint_webapp.cli:main"
+
+[tool.setuptools]
+packages = ["shapoint_webapp", "shapoint_webapp.models"]
+
+[tool.setuptools.package-data]
+shapoint_webapp = ["*.yaml", "*.yml", "models/*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v" 
