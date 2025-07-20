@@ -195,11 +195,11 @@ print(f"Risk Percentage: {risk_result['risk_percentage']}%")
 
 This webapp implements the methodology described in:
 
-> **SHAPoint: Interpretable, Task-Agnostic Risk Scores with SHAP and Trees**  
-> Tomer D. Meirman, Lior Rokach  
+> **SHAPoint: Task‑Agnostic, Efficient, and Interpretable Point‑Based Risk Scoring via Shapley Values**  
+> Tomer D. Meirman, Bracha Shapira, Noa Dagan, Lior Rokach  
 > *[Paper details to be added upon publication]*
 
-If you use SHAPoint WebApp in your research, please cite both the core methodology and this implementation.
+If you use SHAPoint WebApp in your research, please cite the core methodology.
 
 ## 🛠️ Development
 
