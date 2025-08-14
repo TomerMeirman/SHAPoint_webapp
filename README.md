@@ -36,7 +36,7 @@ The core machine learning functionality is provided by **SHAPoint v0.1.0**.
 ### Installation
 
 ```bash
-# Install from PyPI (when available)
+# Install from PyPI - Will be available upon publication - the package is yet to be uploaded to pypi.
 pip install shapoint-webapp
 
 # Or install from source
@@ -253,4 +253,5 @@ This tool is intended for **educational and research purposes only**. For clinic
 
 For questions about the webapp interface, please open an issue in this repository.  
 For questions about the core SHAPoint methodology, please refer to the [main SHAPoint repository](https://github.com/TomerMeirman/SHAPoint).
+
 
