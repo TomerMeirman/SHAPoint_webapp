@@ -31,6 +31,9 @@ This package is a **web interface wrapper** for the core [SHAPoint](https://gith
 
 The core machine learning functionality is provided by **SHAPoint v0.1.0**.
 
+![SHAPoint Webapp Screenshot](figures/webapp_page.png)
+*Example of the webapp using the cardiovascular disease dataset*
+
 ## Quick Start
 
 ### Installation
@@ -253,5 +256,6 @@ This tool is intended for **educational and research purposes only**. For clinic
 
 For questions about the webapp interface, please open an issue in this repository.  
 For questions about the core SHAPoint methodology, please refer to the [main SHAPoint repository](https://github.com/TomerMeirman/SHAPoint).
+
 
 
